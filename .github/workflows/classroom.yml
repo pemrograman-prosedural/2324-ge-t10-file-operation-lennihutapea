@@ -20,11 +20,21 @@ jobs:
         test-name: t10&#45;01&#45;01
         setup-command: make compile
         command: make -s test_01
-        input: dorm-print-all-detail\r\nstudent-print-all-detail\r\n---\r\n
-        expected-output: Antiokia|5|male|0\r\nMamre|5|male|0\r\nSilo|5|male|0\r\nMahanaim|5|male|0\r\nNazaret|5|male|0\r\n12S21001|Dhino
-          Turnip|2021|male|unassigned\r\n12S21002|Marudut Tampubolon|2021|male|unassigned\r\n12S21003|Jusas
-          Tampubolon|2021|male|unassigned\r\n12S21004|Estomihi pangaribuan|2021|male|unassigned\r\n12S21006|Weny
-          Sitinjak|2021|female|unassigned\r\n
+        input: |
+          dorm-print-all-detail
+          student-print-all-detail
+          ---
+        expected-output: |
+          Antiokia|5|male|0
+          Mamre|5|male|0
+          Silo|5|male|0
+          Mahanaim|5|male|0
+          Nazaret|5|male|0
+          12S21001|Dhino Turnip|2021|male|unassigned
+          12S21002|Marudut Tampubolon|2021|male|unassigned
+          12S21003|Jusas Tampubolon|2021|male|unassigned
+          12S21004|Estomihi pangaribuan|2021|male|unassigned
+          12S21006|Weny Sitinjak|2021|female|unassigned
         comparison-method: exact
         timeout: 1
         max-score: 20
@@ -35,19 +45,54 @@ jobs:
         test-name: t10&#45;01&#45;02
         setup-command: make compile
         command: make -s test_01
-        input: student-add#12S21007#Dame Sitinjak#2021#female\r\nstudent-add#12S21008#Tuani
-          Manurung#2021#male\r\nstudent-add#12S21009#Mikhael Pakpahan#2021#male\r\nstudent-add#12S21010#Bobby
-          Siagian#2021#male\r\nstudent-add#12S21011#Aldi Simamora#2021#male\r\nstudent-print-all\r\ndorm-add#Pniel#20#female\r\ndorm-add#Kapernaum#20#male\r\ndorm-print-all\r\nstudent-print-all-detail\r\ndorm-print-all-detail\r\n---\r\n
-        expected-output: 12S21001|Dhino Turnip|2021|male\r\n12S21002|Marudut Tampubolon|2021|male\r\n12S21003|Jusas
-          Tampubolon|2021|male\r\n12S21004|Estomihi pangaribuan|2021|male\r\n12S21006|Weny
-          Sitinjak|2021|female\r\n12S21007|Dame Sitinjak|2021|female\r\n12S21008|Tuani
-          Manurung|2021|male\r\n12S21009|Mikhael Pakpahan|2021|male\r\n12S21010|Bobby
-          Siagian|2021|male\r\n12S21011|Aldi Simamora|2021|male\r\nAntiokia|5|male\r\nMamre|5|male\r\nSilo|5|male\r\nMahanaim|5|male\r\nNazaret|5|male\r\nPniel|20|female\r\nKapernaum|20|male\r\n12S21001|Dhino
-          Turnip|2021|male|unassigned\r\n12S21002|Marudut Tampubolon|2021|male|unassigned\r\n12S21003|Jusas
-          Tampubolon|2021|male|unassigned\r\n12S21004|Estomihi pangaribuan|2021|male|unassigned\r\n12S21006|Weny
-          Sitinjak|2021|female|unassigned\r\n12S21007|Dame Sitinjak|2021|female|unassigned\r\n12S21008|Tuani
-          Manurung|2021|male|unassigned\r\n12S21009|Mikhael Pakpahan|2021|male|unassigned\r\n12S21010|Bobby
-          Siagian|2021|male|unassigned\r\n12S21011|Aldi Simamora|2021|male|unassigned\r\nAntiokia|5|male|0\r\nMamre|5|male|0\r\nSilo|5|male|0\r\nMahanaim|5|male|0\r\nNazaret|5|male|0\r\nPniel|20|female|0\r\nKapernaum|20|male|0\r\n
+        input: |
+          student-add#12S21007#Dame Sitinjak#2021#female
+          student-add#12S21008#Tuani Manurung#2021#male
+          student-add#12S21009#Mikhael Pakpahan#2021#male
+          student-add#12S21010#Bobby Siagian#2021#male
+          student-add#12S21011#Aldi Simamora#2021#male
+          student-print-all
+          dorm-add#Pniel#20#female
+          dorm-add#Kapernaum#20#male
+          dorm-print-all
+          student-print-all-detail
+          dorm-print-all-detail
+          ---
+        expected-output: |
+          12S21001|Dhino Turnip|2021|male
+          12S21002|Marudut Tampubolon|2021|male
+          12S21003|Jusas Tampubolon|2021|male
+          12S21004|Estomihi pangaribuan|2021|male
+          12S21006|Weny Sitinjak|2021|female
+          12S21007|Dame Sitinjak|2021|female
+          12S21008|Tuani Manurung|2021|male
+          12S21009|Mikhael Pakpahan|2021|male
+          12S21010|Bobby Siagian|2021|male
+          12S21011|Aldi Simamora|2021|male
+          Antiokia|5|male
+          Mamre|5|male
+          Silo|5|male
+          Mahanaim|5|male
+          Nazaret|5|male
+          Pniel|20|female
+          Kapernaum|20|male
+          12S21001|Dhino Turnip|2021|male|unassigned
+          12S21002|Marudut Tampubolon|2021|male|unassigned
+          12S21003|Jusas Tampubolon|2021|male|unassigned
+          12S21004|Estomihi pangaribuan|2021|male|unassigned
+          12S21006|Weny Sitinjak|2021|female|unassigned
+          12S21007|Dame Sitinjak|2021|female|unassigned
+          12S21008|Tuani Manurung|2021|male|unassigned
+          12S21009|Mikhael Pakpahan|2021|male|unassigned
+          12S21010|Bobby Siagian|2021|male|unassigned
+          12S21011|Aldi Simamora|2021|male|unassigned
+          Antiokia|5|male|0
+          Mamre|5|male|0
+          Silo|5|male|0
+          Mahanaim|5|male|0
+          Nazaret|5|male|0
+          Pniel|20|female|0
+          Kapernaum|20|male|0
         comparison-method: exact
         timeout: 1
         max-score: 20
@@ -58,22 +103,62 @@ jobs:
         test-name: t10&#45;02&#45;01
         setup-command: make compile
         command: make -s test_02
-        input: student-add#12S21007#Dame Sitinjak#2021#female\r\nstudent-add#12S21008#Tuani
-          Manurung#2021#male\r\nstudent-print-all\r\ndorm-add#Pniel#20#female\r\ndorm-add#Kapernaum#20#male\r\ndorm-print-all\r\nstudent-print-all-detail\r\ndorm-print-all-detail\r\nstudent-add#12S21009#Mikhael
-          Pakpahan#2021#male\r\nstudent-add#12S21010#Bobby Siagian#2021#male\r\nstudent-add#12S21011#Aldi
-          Simamora#2021#male\r\n---\r\n
-        expected-output: 12S21001|Dhino Turnip|2021|male\r\n12S21002|Marudut Tampubolon|2021|male\r\n12S21003|Jusas
-          Tampubolon|2021|male\r\n12S21004|Estomihi pangaribuan|2021|male\r\n12S21006|Weny
-          Sitinjak|2021|female\r\n12S21007|Dame Sitinjak|2021|female\r\n12S21008|Tuani
-          Manurung|2021|male\r\n12S21009|Mikhael Pakpahan|2021|male\r\n12S21010|Bobby
-          Siagian|2021|male\r\n12S21011|Aldi Simamora|2021|male\r\n12S21007|Dame Sitinjak|2021|female\r\n12S21008|Tuani
-          Manurung|2021|male\r\nAntiokia|5|male\r\nMamre|5|male\r\nSilo|5|male\r\nMahanaim|5|male\r\nNazaret|5|male\r\nPniel|20|female\r\nKapernaum|20|male\r\nPniel|20|female\r\nKapernaum|20|male\r\n12S21001|Dhino
-          Turnip|2021|male|unassigned\r\n12S21002|Marudut Tampubolon|2021|male|unassigned\r\n12S21003|Jusas
-          Tampubolon|2021|male|unassigned\r\n12S21004|Estomihi pangaribuan|2021|male|unassigned\r\n12S21006|Weny
-          Sitinjak|2021|female|unassigned\r\n12S21007|Dame Sitinjak|2021|female|unassigned\r\n12S21008|Tuani
-          Manurung|2021|male|unassigned\r\n12S21009|Mikhael Pakpahan|2021|male|unassigned\r\n12S21010|Bobby
-          Siagian|2021|male|unassigned\r\n12S21011|Aldi Simamora|2021|male|unassigned\r\n12S21007|Dame
-          Sitinjak|2021|female|unassigned\r\n12S21008|Tuani Manurung|2021|male|unassigned\r\nAntiokia|5|male|0\r\nMamre|5|male|0\r\nSilo|5|male|0\r\nMahanaim|5|male|0\r\nNazaret|5|male|0\r\nPniel|20|female|0\r\nKapernaum|20|male|0\r\nPniel|20|female|0\r\nKapernaum|20|male|0\r\n
+        input: |
+          student-add#12S21007#Dame Sitinjak#2021#female
+          student-add#12S21008#Tuani Manurung#2021#male
+          student-print-all
+          dorm-add#Pniel#20#female
+          dorm-add#Kapernaum#20#male
+          dorm-print-all
+          student-print-all-detail
+          dorm-print-all-detail
+          student-add#12S21009#Mikhael Pakpahan#2021#male
+          student-add#12S21010#Bobby Siagian#2021#male
+          student-add#12S21011#Aldi Simamora#2021#male
+          ---
+        expected-output: |
+          12S21001|Dhino Turnip|2021|male
+          12S21002|Marudut Tampubolon|2021|male
+          12S21003|Jusas Tampubolon|2021|male
+          12S21004|Estomihi pangaribuan|2021|male
+          12S21006|Weny Sitinjak|2021|female
+          12S21007|Dame Sitinjak|2021|female
+          12S21008|Tuani Manurung|2021|male
+          12S21009|Mikhael Pakpahan|2021|male
+          12S21010|Bobby Siagian|2021|male
+          12S21011|Aldi Simamora|2021|male
+          12S21007|Dame Sitinjak|2021|female
+          12S21008|Tuani Manurung|2021|male
+          Antiokia|5|male
+          Mamre|5|male
+          Silo|5|male
+          Mahanaim|5|male
+          Nazaret|5|male
+          Pniel|20|female
+          Kapernaum|20|male
+          Pniel|20|female
+          Kapernaum|20|male
+          12S21001|Dhino Turnip|2021|male|unassigned
+          12S21002|Marudut Tampubolon|2021|male|unassigned
+          12S21003|Jusas Tampubolon|2021|male|unassigned
+          12S21004|Estomihi pangaribuan|2021|male|unassigned
+          12S21006|Weny Sitinjak|2021|female|unassigned
+          12S21007|Dame Sitinjak|2021|female|unassigned
+          12S21008|Tuani Manurung|2021|male|unassigned
+          12S21009|Mikhael Pakpahan|2021|male|unassigned
+          12S21010|Bobby Siagian|2021|male|unassigned
+          12S21011|Aldi Simamora|2021|male|unassigned
+          12S21007|Dame Sitinjak|2021|female|unassigned
+          12S21008|Tuani Manurung|2021|male|unassigned
+          Antiokia|5|male|0
+          Mamre|5|male|0
+          Silo|5|male|0
+          Mahanaim|5|male|0
+          Nazaret|5|male|0
+          Pniel|20|female|0
+          Kapernaum|20|male|0
+          Pniel|20|female|0
+          Kapernaum|20|male|0
         comparison-method: exact
         timeout: 1
         max-score: 20
@@ -84,28 +169,92 @@ jobs:
         test-name: t10&#45;02&#45;02
         setup-command: make compile
         command: make -s test_02
-        input: student-add#12S21008#Tuani Manurung#2021#male\r\nstudent-add#12S21007#Dame
-          Sitinjak#2021#female\r\nstudent-print-all\r\ndorm-add#Pniel#20#female\r\ndorm-add#Kapernaum#20#male\r\ndorm-print-all\r\nstudent-add#12S21009#Mikhael
-          Pakpahan#2021#male\r\nstudent-add#12S21010#Bobby Siagian#2021#male\r\nstudent-add#12S21011#Aldi
-          Simamora#2021#male\r\nassign-student#12S21001#Antiokia\r\nassign-student#12S21002#Antiokia\r\nassign-student#12S21003#Antiokia\r\nassign-student#12S21004#Antiokia\r\nassign-student#12S21006#Pniel\r\nassign-student#12S21007#Pniel\r\nassign-student#12S21008#Antiokia\r\nassign-student#12S21009#Antiokia\r\nassign-student#12S21010#Antiokia\r\nassign-student#12S21011#Antiokia\r\nmove-student#12S21001#Mahanaim\r\nmove-student#12S21007#Nazaret\r\nmove-student#12S21007#Kapernaum\r\nstudent-print-all-detail\r\ndorm-print-all-detail\r\n---\r\n
-        expected-output: 12S21001|Dhino Turnip|2021|male\r\n12S21002|Marudut Tampubolon|2021|male\r\n12S21003|Jusas
-          Tampubolon|2021|male\r\n12S21004|Estomihi pangaribuan|2021|male\r\n12S21006|Weny
-          Sitinjak|2021|female\r\n12S21007|Dame Sitinjak|2021|female\r\n12S21008|Tuani
-          Manurung|2021|male\r\n12S21009|Mikhael Pakpahan|2021|male\r\n12S21010|Bobby
-          Siagian|2021|male\r\n12S21011|Aldi Simamora|2021|male\r\n12S21007|Dame Sitinjak|2021|female\r\n12S21008|Tuani
-          Manurung|2021|male\r\n12S21009|Mikhael Pakpahan|2021|male\r\n12S21010|Bobby
-          Siagian|2021|male\r\n12S21011|Aldi Simamora|2021|male\r\n12S21008|Tuani
-          Manurung|2021|male\r\n12S21007|Dame Sitinjak|2021|female\r\nAntiokia|5|male\r\nMamre|5|male\r\nSilo|5|male\r\nMahanaim|5|male\r\nNazaret|5|male\r\nPniel|20|female\r\nKapernaum|20|male\r\nPniel|20|female\r\nKapernaum|20|male\r\nPniel|20|female\r\nKapernaum|20|male\r\n12S21001|Dhino
-          Turnip|2021|male|Mahanaim\r\n12S21002|Marudut Tampubolon|2021|male|Antiokia\r\n12S21003|Jusas
-          Tampubolon|2021|male|Antiokia\r\n12S21004|Estomihi pangaribuan|2021|male|Antiokia\r\n12S21006|Weny
-          Sitinjak|2021|female|Pniel\r\n12S21007|Dame Sitinjak|2021|female|Pniel\r\n12S21008|Tuani
-          Manurung|2021|male|Antiokia\r\n12S21009|Mikhael Pakpahan|2021|male|unassigned\r\n12S21010|Bobby
-          Siagian|2021|male|unassigned\r\n12S21011|Aldi Simamora|2021|male|unassigned\r\n12S21007|Dame
-          Sitinjak|2021|female|unassigned\r\n12S21008|Tuani Manurung|2021|male|unassigned\r\n12S21009|Mikhael
-          Pakpahan|2021|male|unassigned\r\n12S21010|Bobby Siagian|2021|male|unassigned\r\n12S21011|Aldi
-          Simamora|2021|male|unassigned\r\n12S21008|Tuani Manurung|2021|male|unassigned\r\n12S21007|Dame
-          Sitinjak|2021|female|unassigned\r\n12S21009|Mikhael Pakpahan|2021|male|unassigned\r\n12S21010|Bobby
-          Siagian|2021|male|unassigned\r\n12S21011|Aldi Simamora|2021|male|unassigned\r\nAntiokia|5|male|4\r\nMamre|5|male|0\r\nSilo|5|male|0\r\nMahanaim|5|male|1\r\nNazaret|5|male|0\r\nPniel|20|female|2\r\nKapernaum|20|male|0\r\nPniel|20|female|0\r\nKapernaum|20|male|0\r\nPniel|20|female|0\r\nKapernaum|20|male|0\r\n
+        input: |
+          student-add#12S21008#Tuani Manurung#2021#male
+          student-add#12S21007#Dame Sitinjak#2021#female
+          student-print-all
+          dorm-add#Pniel#20#female
+          dorm-add#Kapernaum#20#male
+          dorm-print-all
+          student-add#12S21009#Mikhael Pakpahan#2021#male
+          student-add#12S21010#Bobby Siagian#2021#male
+          student-add#12S21011#Aldi Simamora#2021#male
+          assign-student#12S21001#Antiokia
+          assign-student#12S21002#Antiokia
+          assign-student#12S21003#Antiokia
+          assign-student#12S21004#Antiokia
+          assign-student#12S21006#Pniel
+          assign-student#12S21007#Pniel
+          assign-student#12S21008#Antiokia
+          assign-student#12S21009#Antiokia
+          assign-student#12S21010#Antiokia
+          assign-student#12S21011#Antiokia
+          move-student#12S21001#Mahanaim
+          move-student#12S21007#Nazaret
+          move-student#12S21007#Kapernaum
+          student-print-all-detail
+          dorm-print-all-detail
+          ---
+        expected-output: |
+          12S21001|Dhino Turnip|2021|male
+          12S21002|Marudut Tampubolon|2021|male
+          12S21003|Jusas Tampubolon|2021|male
+          12S21004|Estomihi pangaribuan|2021|male
+          12S21006|Weny Sitinjak|2021|female
+          12S21007|Dame Sitinjak|2021|female
+          12S21008|Tuani Manurung|2021|male
+          12S21009|Mikhael Pakpahan|2021|male
+          12S21010|Bobby Siagian|2021|male
+          12S21011|Aldi Simamora|2021|male
+          12S21007|Dame Sitinjak|2021|female
+          12S21008|Tuani Manurung|2021|male
+          12S21009|Mikhael Pakpahan|2021|male
+          12S21010|Bobby Siagian|2021|male
+          12S21011|Aldi Simamora|2021|male
+          12S21008|Tuani Manurung|2021|male
+          12S21007|Dame Sitinjak|2021|female
+          Antiokia|5|male
+          Mamre|5|male
+          Silo|5|male
+          Mahanaim|5|male
+          Nazaret|5|male
+          Pniel|20|female
+          Kapernaum|20|male
+          Pniel|20|female
+          Kapernaum|20|male
+          Pniel|20|female
+          Kapernaum|20|male
+          12S21001|Dhino Turnip|2021|male|Mahanaim
+          12S21002|Marudut Tampubolon|2021|male|Antiokia
+          12S21003|Jusas Tampubolon|2021|male|Antiokia
+          12S21004|Estomihi pangaribuan|2021|male|Antiokia
+          12S21006|Weny Sitinjak|2021|female|Pniel
+          12S21007|Dame Sitinjak|2021|female|Pniel
+          12S21008|Tuani Manurung|2021|male|Antiokia
+          12S21009|Mikhael Pakpahan|2021|male|unassigned
+          12S21010|Bobby Siagian|2021|male|unassigned
+          12S21011|Aldi Simamora|2021|male|unassigned
+          12S21007|Dame Sitinjak|2021|female|unassigned
+          12S21008|Tuani Manurung|2021|male|unassigned
+          12S21009|Mikhael Pakpahan|2021|male|unassigned
+          12S21010|Bobby Siagian|2021|male|unassigned
+          12S21011|Aldi Simamora|2021|male|unassigned
+          12S21008|Tuani Manurung|2021|male|unassigned
+          12S21007|Dame Sitinjak|2021|female|unassigned
+          12S21009|Mikhael Pakpahan|2021|male|unassigned
+          12S21010|Bobby Siagian|2021|male|unassigned
+          12S21011|Aldi Simamora|2021|male|unassigned
+          Antiokia|5|male|4
+          Mamre|5|male|0
+          Silo|5|male|0
+          Mahanaim|5|male|1
+          Nazaret|5|male|0
+          Pniel|20|female|2
+          Kapernaum|20|male|0
+          Pniel|20|female|0
+          Kapernaum|20|male|0
+          Pniel|20|female|0
+          Kapernaum|20|male|0
         comparison-method: exact
         timeout: 1
         max-score: 20
@@ -116,23 +265,72 @@ jobs:
         test-name: t10&#45;02&#45;03
         setup-command: make compile
         command: make -s test_02
-        input: student-add#12S21008#Tuani Manurung#2021#male\r\nstudent-add#12S21009#Mikhael
-          Pakpahan#2021#male\r\nstudent-add#12S21010#Bobby Siagian#2021#male\r\nstudent-add#12S21011#Aldi
-          Simamora#2021#male\r\ndorm-add#Kapernaum#20#male\r\ndorm-add#Pniel#20#female\r\nstudent-add#12S21007#Dame
-          Sitinjak#2021#female\r\nassign-student#12S21001#Antiokia\r\nassign-student#12S21002#Antiokia\r\nassign-student#12S21003#Antiokia\r\nassign-student#12S21004#Antiokia\r\nassign-student#12S21006#Pniel\r\nassign-student#12S21007#Pniel\r\nassign-student#12S21008#Antiokia\r\nassign-student#12S21009#Antiokia\r\nassign-student#12S21010#Antiokia\r\nassign-student#12S21011#Antiokia\r\nmove-student#12S21009#Nazaret\r\nmove-student#12S21010#Nazaret\r\nmove-student#12S21011#Nazaret\r\nmove-student#12S21001#Mahanaim\r\nmove-student#12S21007#Nazaret\r\nmove-student#12S21007#Kapernaum\r\nstudent-print-all-detail\r\ndorm-print-all-detail\r\n---\r\n
-        expected-output: 12S21001|Dhino Turnip|2021|male|Mahanaim\r\n12S21002|Marudut
-          Tampubolon|2021|male|Antiokia\r\n12S21003|Jusas Tampubolon|2021|male|Antiokia\r\n12S21004|Estomihi
-          pangaribuan|2021|male|Antiokia\r\n12S21006|Weny Sitinjak|2021|female|Pniel\r\n12S21007|Dame
-          Sitinjak|2021|female|Pniel\r\n12S21008|Tuani Manurung|2021|male|Antiokia\r\n12S21009|Mikhael
-          Pakpahan|2021|male|Nazaret\r\n12S21010|Bobby Siagian|2021|male|Nazaret\r\n12S21011|Aldi
-          Simamora|2021|male|Nazaret\r\n12S21007|Dame Sitinjak|2021|female|unassigned\r\n12S21008|Tuani
-          Manurung|2021|male|unassigned\r\n12S21009|Mikhael Pakpahan|2021|male|unassigned\r\n12S21010|Bobby
-          Siagian|2021|male|unassigned\r\n12S21011|Aldi Simamora|2021|male|unassigned\r\n12S21008|Tuani
-          Manurung|2021|male|unassigned\r\n12S21007|Dame Sitinjak|2021|female|unassigned\r\n12S21009|Mikhael
-          Pakpahan|2021|male|unassigned\r\n12S21010|Bobby Siagian|2021|male|unassigned\r\n12S21011|Aldi
-          Simamora|2021|male|unassigned\r\n12S21008|Tuani Manurung|2021|male|unassigned\r\n12S21009|Mikhael
-          Pakpahan|2021|male|unassigned\r\n12S21010|Bobby Siagian|2021|male|unassigned\r\n12S21011|Aldi
-          Simamora|2021|male|unassigned\r\n12S21007|Dame Sitinjak|2021|female|unassigned\r\nAntiokia|5|male|4\r\nMamre|5|male|0\r\nSilo|5|male|0\r\nMahanaim|5|male|1\r\nNazaret|5|male|3\r\nPniel|20|female|2\r\nKapernaum|20|male|0\r\nPniel|20|female|0\r\nKapernaum|20|male|0\r\nPniel|20|female|0\r\nKapernaum|20|male|0\r\nKapernaum|20|male|0\r\nPniel|20|female|0\r\n
+        input: |
+          student-add#12S21008#Tuani Manurung#2021#male
+          student-add#12S21009#Mikhael Pakpahan#2021#male
+          student-add#12S21010#Bobby Siagian#2021#male
+          student-add#12S21011#Aldi Simamora#2021#male
+          dorm-add#Kapernaum#20#male
+          dorm-add#Pniel#20#female
+          student-add#12S21007#Dame Sitinjak#2021#female
+          assign-student#12S21001#Antiokia
+          assign-student#12S21002#Antiokia
+          assign-student#12S21003#Antiokia
+          assign-student#12S21004#Antiokia
+          assign-student#12S21006#Pniel
+          assign-student#12S21007#Pniel
+          assign-student#12S21008#Antiokia
+          assign-student#12S21009#Antiokia
+          assign-student#12S21010#Antiokia
+          assign-student#12S21011#Antiokia
+          move-student#12S21009#Nazaret
+          move-student#12S21010#Nazaret
+          move-student#12S21011#Nazaret
+          move-student#12S21001#Mahanaim
+          move-student#12S21007#Nazaret
+          move-student#12S21007#Kapernaum
+          student-print-all-detail
+          dorm-print-all-detail
+          ---
+        expected-output: |
+          12S21001|Dhino Turnip|2021|male|Mahanaim
+          12S21002|Marudut Tampubolon|2021|male|Antiokia
+          12S21003|Jusas Tampubolon|2021|male|Antiokia
+          12S21004|Estomihi pangaribuan|2021|male|Antiokia
+          12S21006|Weny Sitinjak|2021|female|Pniel
+          12S21007|Dame Sitinjak|2021|female|Pniel
+          12S21008|Tuani Manurung|2021|male|Antiokia
+          12S21009|Mikhael Pakpahan|2021|male|Nazaret
+          12S21010|Bobby Siagian|2021|male|Nazaret
+          12S21011|Aldi Simamora|2021|male|Nazaret
+          12S21007|Dame Sitinjak|2021|female|unassigned
+          12S21008|Tuani Manurung|2021|male|unassigned
+          12S21009|Mikhael Pakpahan|2021|male|unassigned
+          12S21010|Bobby Siagian|2021|male|unassigned
+          12S21011|Aldi Simamora|2021|male|unassigned
+          12S21008|Tuani Manurung|2021|male|unassigned
+          12S21007|Dame Sitinjak|2021|female|unassigned
+          12S21009|Mikhael Pakpahan|2021|male|unassigned
+          12S21010|Bobby Siagian|2021|male|unassigned
+          12S21011|Aldi Simamora|2021|male|unassigned
+          12S21008|Tuani Manurung|2021|male|unassigned
+          12S21009|Mikhael Pakpahan|2021|male|unassigned
+          12S21010|Bobby Siagian|2021|male|unassigned
+          12S21011|Aldi Simamora|2021|male|unassigned
+          12S21007|Dame Sitinjak|2021|female|unassigned
+          Antiokia|5|male|4
+          Mamre|5|male|0
+          Silo|5|male|0
+          Mahanaim|5|male|1
+          Nazaret|5|male|3
+          Pniel|20|female|2
+          Kapernaum|20|male|0
+          Pniel|20|female|0
+          Kapernaum|20|male|0
+          Pniel|20|female|0
+          Kapernaum|20|male|0
+          Kapernaum|20|male|0
+          Pniel|20|female|0
         comparison-method: exact
         timeout: 1
         max-score: 20
