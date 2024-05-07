@@ -3,17 +3,17 @@
 
 #include "gender.h"
 
-struct dorm_t
+typedef struct dorm_t
 {
   char name[20];
   unsigned short capacity;
-  enum gender_t gender;
+  gender_t gender;
   unsigned short residents_num;
-};
+} Dorm;
 
-struct dorm_t create_dorm(char *_name, unsigned short _capacity, enum gender_t _gender);
-void print_dorm(struct dorm_t *_dorm, int count);
-
-void print_detaildorm(struct dorm_t *_dorm, int count);
+Dorm create_dorm ( char *_name, unsigned short _capacity, gender_t _gender );
+short findDormIdx ( char* _name, Dorm *list, int length );
+void print_dorm ( Dorm dorm_to_print );
+void printDormDetails ( Dorm dorm_to_print );
 
 #endif

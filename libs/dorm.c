@@ -2,59 +2,47 @@
 #include <stdio.h>
 #include <string.h>
 
-struct dorm_t create_dorm(char *_name, unsigned short _capacity, enum gender_t _gender)
+Dorm create_dorm ( char *_name, unsigned short _capacity, gender_t _gender )
 {
-    struct dorm_t dorm;
-    strcpy(dorm.name, _name);
-    dorm.capacity = _capacity;
-    dorm.gender = _gender;
-    dorm.residents_num = 0;
-    return dorm;
+    Dorm dorm_;
+
+    dorm_.residents_num = 0;
+    strcpy( dorm_.name, _name );
+    dorm_.capacity = _capacity;
+    dorm_.gender   = _gender;
+
+    return dorm_;
 }
 
-void print_dorm(struct dorm_t *_dorm, int count)
+void print_dorm ( Dorm dorm_to_print )
 {
+    printf( "%s", dorm_to_print.name );
 
-    char type1[50];
-    strcpy(type1, "male");
-    char type2[50];
-    strcpy(type2, "female");
+    ( dorm_to_print.gender == GENDER_MALE )?
+        printf( "|%d|male\n", dorm_to_print.capacity ):
+        printf( "|%d|female\n", dorm_to_print.capacity );
 
-    int i = 0;
-    while (i < count)
-    {
-        if (_dorm[i].gender == GENDER_MALE)
-        {
-            printf("%s|%d|%s\n", _dorm[i].name, _dorm[i].capacity, type1);
-        }
-        else if (_dorm[i].gender == GENDER_FEMALE)
-        {
-            printf("%s|%d|%s\n", _dorm[i].name, _dorm[i].capacity, type2);
-        }
-        i++;
-    }
+    fflush( stdout );    
 }
 
-void print_detaildorm(struct dorm_t *_dorm, int count)
+void printDormDetails ( Dorm dorm_to_print )
 {
-    char type1[50];
-    strcpy(type1, "male");
-    char type2[50];
-    strcpy(type2, "female");
+    printf( "%s|%d", dorm_to_print.name, dorm_to_print.capacity );
 
-    int i = 0;
-    while (i < count)
-    {
+    ( dorm_to_print.gender == GENDER_MALE )?
+        printf( "|male" ) : printf( "|female" );
+    
+    printf( "|%d\n", dorm_to_print.residents_num );
 
-        if (_dorm[i].gender == GENDER_MALE)
-        {
-            printf("%s|%d|%s|%d\n", _dorm[i].name, _dorm[i].capacity, type1, _dorm[i].residents_num);
-        }
-        else if (_dorm[i].gender == GENDER_FEMALE)
-        {
-            printf("%s|%d|%s|%d\n", _dorm[i].name, _dorm[i].capacity, type2, _dorm[i].residents_num);
-        }
+    fflush( stdout );  
+}
 
-        i++;
+short findDormIdx ( char* _name, Dorm *list, int length )
+{
+    for ( short i=0; i<length; i++ ) {
+        if ( strcmp( list[i].name, _name ) == 0 )
+            return i;
     }
+
+    return -1;
 }

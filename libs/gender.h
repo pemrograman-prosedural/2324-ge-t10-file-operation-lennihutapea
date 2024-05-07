@@ -1,10 +1,10 @@
 #ifndef GENDER_H
 #define GENDER_H
 
-enum gender_t
+typedef enum gender_t
 {
     GENDER_MALE,
     GENDER_FEMALE
-};
+} gender_t;
 
 #endif
